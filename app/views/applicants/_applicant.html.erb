@@ -1,0 +1,11 @@
+<div class="flex flex-col m-4 p-4 border-2 border-blue-500 rounded">
+    <div>
+        Name: <%= applicant.name %>
+    </div>
+    <div>
+        Status: <%= applicant.status %>
+    </div>
+    <div>
+        Notes: <%= truncate(applicant.notes, length: 20) %>
+    </div>
+</div>

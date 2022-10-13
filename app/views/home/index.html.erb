@@ -1,6 +1,7 @@
 <%= link_to "Add", new_applicant_path, class: "bg-blue-500 text-white rounded w-42 p-4 font-bold m-4" %>
 <div class="mt-12 flex flex-grow h-full">
     <% ["Applied", "Interviewing", "Interview Done", "Decided"].each do |section| %>
-        <%= render "section", section_name: section %>
+        
+        <%= render "section", section_name: section, applicants: @applicants.select {|applicant| applicant.status == section } %>
     <% end %>
 </div>
