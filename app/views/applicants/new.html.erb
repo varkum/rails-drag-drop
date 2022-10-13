@@ -1,0 +1,13 @@
+<h2 class="font-bold text-2xl mb-8 mt-4">New Applicant</h2>
+<%= form_with(model: @applicant, class: "flex flex-col mt-12") do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "rounded w-64"%>
+
+    <%= form.label :status %>
+    <%= form.select :status, ["Applied", "Interviewing", "Interview Done", "Decided"], {}, {class: "rounded w-56"} %>
+
+    <%= form.label :notes %>
+    <%= form.text_area :notes%>
+
+    <%= form.submit "Add", class: "bg-blue-500 w-full rounded text-white font-bold mt-4 p-4 hover:opacity-70 cursor-pointer" %>
+<% end %>
