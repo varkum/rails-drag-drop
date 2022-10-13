@@ -1,6 +1,8 @@
-<div class="text-center flex-grow border-2 border-slate-400" id="<%= section_name %>">
+<div class="text-center flex-grow border-2 border-slate-400" id="<%= section_name %>" data-controller="dnd" data-action = "drop->dnd#handleDrop dragover->dnd#handleDragover" data-action="drop->dnd#handleDrop"data-dnd-target="section">
         <h2 class="font-bold text-2xl"><%= section_name %></h2>
         <% applicants.each do |applicant| %>
             <%= render partial: "applicants/applicant", locals: {applicant: applicant} %>
         <% end %>
 </div>
+
+<% # have a hidden form with the edit action. Dropping triggers its submit. %>

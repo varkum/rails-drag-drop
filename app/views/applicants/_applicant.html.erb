@@ -1,4 +1,4 @@
-<div class="flex flex-col m-4 p-4 border-2 border-blue-500 rounded">
+<div class="flex flex-col m-4 p-4 border-2 border-blue-500 rounded" data-controller="dnd" id= "<%= applicant.id %>" draggable="true" data-action="dragstart->dnd#ondrag" data-dnd-target="card">
     <div>
         Name: <%= applicant.name %>
     </div>
