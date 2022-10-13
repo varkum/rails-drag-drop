@@ -13,7 +13,12 @@ class ApplicantsController < ApplicationController
 
     #POST /applicants/new
     def create
-
+        @applicant = Applicant.new(applicant_params)
+        if @applicant.save
+            redirect_to root_path
+        else  
+            render :new, status: :unprocessable_entity
+        end
     end
 
     #PATCH/PUT /applicants/1
@@ -25,5 +30,9 @@ class ApplicantsController < ApplicationController
 
     def set_applicant
         @applicant = Applicant.find(params[:id])
+    end
+
+    def applicant_params
+        params.require(:applicant).permit(:name, :status, :notes)
     end
 end

@@ -1,15 +1,6 @@
 <%= link_to "Add", new_applicant_path, class: "bg-blue-500 text-white rounded w-42 p-4 font-bold m-4" %>
 <div class="mt-12 flex flex-grow h-full">
-    <div class="text-center flex-grow border-2 border-slate-400" id="applied">
-        <h2 class="font-bold text-2xl">Applied</h2>
-    </div>
-    <div class="text-center flex-grow border-2 border-slate-400" id="interviewing">
-        <h2 class="font-bold text-2xl">Interviewing</h2>
-    </div>
-    <div class="text-center flex-grow border-2 border-slate-400" id="interviewed">
-        <h2 class="font-bold text-2xl">Interview Done</h2>
-    </div>
-    <div class="text-center flex-grow border-2 border-slate-400" id="decided">
-        <h2 class="font-bold text-2xl">Decided</h2>
-    </div>
+    <% ["Applied", "Interviewing", "Interview Done", "Decided"].each do |section| %>
+        <%= render "section", section_name: section %>
+    <% end %>
 </div>
