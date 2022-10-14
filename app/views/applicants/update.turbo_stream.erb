@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "home" do %>
+    <%= turbo_frame_tag "home" do %>
+        <%= render partial: "home/home", locals: {applicants: Applicant.all} %>
+    <% end %>
+<% end %>

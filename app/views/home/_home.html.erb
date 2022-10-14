@@ -1,0 +1,6 @@
+<div class="mt-12 flex flex-grow h-full">
+    <% ["Applied", "Interviewing", "Interview Done", "Decided"].each do |section| %>
+        
+        <%= render "home/section", section_name: section, applicants: applicants.select {|applicant| applicant.status == section } %>
+    <% end %>
+</div>

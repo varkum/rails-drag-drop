@@ -1,10 +1,7 @@
 class ApplicantsController < ApplicationController
     before_action :set_applicant, only: [:show, :update]
 
-    #GET /applicants/1
-    def show
-
-    end
+    
 
     #GET /applicants/new
     def new
@@ -14,6 +11,7 @@ class ApplicantsController < ApplicationController
     #POST /applicants/new
     def create
         @applicant = Applicant.new(applicant_params)
+
         if @applicant.save
             redirect_to root_path
         else  
@@ -23,9 +21,13 @@ class ApplicantsController < ApplicationController
 
     #PATCH/PUT /applicants/1
     def update
-        if @applicant.update({status: params[:section]})
-            redirect_to root_path
-        end
+        respond_to do |format|
+            if @applicant.update({status: params[:section]})
+                format.turbo_stream
+            else 
+                redirect_to root_path, status: :unprocessable_entity
+            end
+        end 
     end
 
     private 
