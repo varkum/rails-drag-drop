@@ -23,7 +23,9 @@ class ApplicantsController < ApplicationController
 
     #PATCH/PUT /applicants/1
     def update
-
+        if @applicant.update({status: params[:section]})
+            redirect_to root_path
+        end
     end
 
     private 
