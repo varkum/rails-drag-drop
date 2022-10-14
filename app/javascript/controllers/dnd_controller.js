@@ -22,8 +22,5 @@ export default class extends Controller {
       `/applicants/${event.dataTransfer.getData("text")}`
     );
     this.formTarget.requestSubmit();
-    //console.log(this.formTarget);
-
-    //this.cardTarget.classList.remove("hidden");
   }
 }
